@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+ANSIBLE_SDK_CONTAINER=sfroemer/ansible-ovirtsdk4-playbook
+SSH_PRIVATE_KEY=~/.ssh/id_rsa
+SSH_PUBLIC_KEY=~/.ssh/id_rsa.pub
+
+podman run --rm -it \
+  -v ${SSH_PRIVATE_KEY}:/root/.ssh/id_rsa \
+  -v ${SSH_PUBLIC_KEY}:/root/.ssh/id_rsa.pub \
+  -v $(pwd):/ansible/playbooks \
+  ${ANSIBLE_SDK_CONTAINER} "$@"
