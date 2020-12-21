@@ -13,6 +13,8 @@ A tool for running playbooks based on [ovirt.ovirt](https://github.com/oVirt/ovi
 $ podman build -t sfroemer/ansible-ovirtsdk4-playbook:latest .
 ```
 
+It might be necessary to login into container registry [registry.redhat.io](https://registry.redhat.io) or using the registration-free [registry.access.redhat.com](https://registry.access.redhat.com). More information about Login to different registries can be obtained [here](https://access.redhat.com/RegistryAuthentication).
+
 ### Installation and configuration
 1. Copy the `ansible-playbook-ovirt` executable to a location which is propagated in `$PATH`
    ```
