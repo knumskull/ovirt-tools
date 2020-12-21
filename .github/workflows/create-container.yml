@@ -22,8 +22,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - name: Buildah Build
-        uses: redhat-actions/buildah-build@v1
+    - name: Buildah Action
+      uses: redhat-actions/buildah-build@v1
+      with:
+        image: ansible-ovirtsdk4-playbook
+        tag: v1
+        dockerfiles: |
+          ./Containerfile
+        build-args: |
+          some_arg=some_value
