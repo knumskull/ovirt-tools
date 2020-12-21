@@ -23,6 +23,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - uses: actions/checkout@v2
+    - name: Login to registry.redhat.io
+      run: echo "${{ secrets.REGISTRY_REDHAT_IO_PASSWORD }}" | docker login registry.redhat.io -u "${{ secrets.REGISTRY_REDHAT_IO_USERNAME }}" --password-stdin
+
 
     - name: Buildah Action
       uses: redhat-actions/buildah-build@v1
@@ -31,6 +34,3 @@ jobs:
         tag: v1
         dockerfiles: |
           ./Containerfile
-        registry: registry.redhat.io
-        username: ${{ secrets.REGISTRY_REDHAT_IO_USERNAME }}
-        password: ${{ secrets.REGISTRY_REDHAT_IO_PASSWORD }}
