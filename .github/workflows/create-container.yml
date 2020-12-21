@@ -31,5 +31,6 @@ jobs:
         tag: v1
         dockerfiles: |
           ./Containerfile
-        build-args: |
-          some_arg=some_value
+        registry: registry.redhat.io
+        username: ${{ secrets.REGISTRY_REDHAT_IO_USERNAME }}
+        password: ${{ secrets.REGISTRY_REDHAT_IO_PASSWORD }}
